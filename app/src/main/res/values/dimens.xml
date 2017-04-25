@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="d8">8dp</dimen>
+    <dimen name="pt14">14pt</dimen>
+    <dimen name="pt70">80pt</dimen>
+    <dimen name="pt10">10pt</dimen>
+    <dimen name="pt8">8pt</dimen>
+</resources>
