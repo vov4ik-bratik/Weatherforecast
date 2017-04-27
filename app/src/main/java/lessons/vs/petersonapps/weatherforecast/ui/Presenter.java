@@ -29,6 +29,7 @@ class Presenter implements WeatherContract.Presenter{
                 @Override
                 public void onResponse(Call<WeatherData> call, Response<WeatherData> response) {
                     view.setWeatherData(response.body());
+                    view.setMapPoint(response.body());
                 }
 
                 @Override

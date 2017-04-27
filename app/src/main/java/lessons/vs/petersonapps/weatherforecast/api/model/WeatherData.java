@@ -54,6 +54,10 @@ public class WeatherData {
     public WeatherData() {
     }
 
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
     public String getCityName() {
         return cityName;
     }

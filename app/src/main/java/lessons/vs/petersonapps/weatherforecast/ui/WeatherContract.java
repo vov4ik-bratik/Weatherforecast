@@ -13,6 +13,8 @@ public class WeatherContract {
     public interface View{
         void setEmptyCityNameMessage(@StringRes int resId);
         void setWeatherData(WeatherData data);
+
+        void setMapPoint(WeatherData body);
     }
 
     interface Presenter{

@@ -23,6 +23,19 @@ android {
             buildConfigField "Boolean", "LOG_MODE", "true"
         }
     }
+
+    productFlavors{
+        staging{
+        }
+
+        prod{
+
+        }
+
+        beta{
+
+        }
+    }
 }
 
 dependencies {
