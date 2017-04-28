@@ -69,7 +69,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/d8"
-        android:background="@drawable/ic_audiotrack_black_24dp"
         android:orientation="horizontal">
 
         <TextView

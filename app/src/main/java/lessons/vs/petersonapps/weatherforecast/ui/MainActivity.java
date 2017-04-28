@@ -26,6 +26,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.GoogleMap.CancelableCallback;
 import com.squareup.picasso.Picasso;
 
+import java.lang.reflect.Field;
+
 import lessons.vs.petersonapps.weatherforecast.R;
 import lessons.vs.petersonapps.weatherforecast.api.model.WeatherData;
 
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements WeatherContract.V
         myMap = googleMap;
         LatLng london = new LatLng(51.514383, -0.079661);
         marker = myMap.addMarker(new MarkerOptions().position(london).title("London"));
-        myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(london, 15), 2000, null);
+        myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(london, 10), 2000, null);
     }
 
     private View.OnClickListener searchButtonClickListener = new View.OnClickListener() {
@@ -127,10 +129,94 @@ public class MainActivity extends AppCompatActivity implements WeatherContract.V
 
         wind.setText(res.getString(R.string.wind_speed, String.valueOf(data.getWind())));
 
-        Picasso.with(getApplicationContext())
-                .load("http://openweathermap.org/img/w/10d.png")
-                .into(weatherCondition);
+        setWeatherIcon(data);
 
+    }
+
+    private void setWeatherIcon(WeatherData data) {
+        switch (data.getIcon()) {
+
+            case "01d": {
+                weatherCondition.setImageResource(R.drawable.clear_sky);
+                break;
+            }
+            case "01n": {
+                weatherCondition.setImageResource(R.drawable.clear_sky);
+                break;
+            }
+
+            case "02d": {
+                weatherCondition.setImageResource(R.drawable.few_clouds);
+                break;
+            }
+            case "02n": {
+                weatherCondition.setImageResource(R.drawable.few_clouds);
+                break;
+            }
+
+            case "03d": {
+                weatherCondition.setImageResource(R.drawable.scattered_clouds);
+                break;
+            }
+            case "03n": {
+                weatherCondition.setImageResource(R.drawable.scattered_clouds);
+                break;
+            }
+
+            case "04d": {
+                weatherCondition.setImageResource(R.drawable.broken_clouds);
+                break;
+            }
+            case "04n": {
+                weatherCondition.setImageResource(R.drawable.broken_clouds);
+                break;
+            }
+
+            case "09d": {
+                weatherCondition.setImageResource(R.drawable.shower_rain);
+                break;
+            }
+            case "09n": {
+                weatherCondition.setImageResource(R.drawable.shower_rain);
+                break;
+            }
+
+            case "10d": {
+                weatherCondition.setImageResource(R.drawable.rain);
+                break;
+            }
+            case "10n": {
+                weatherCondition.setImageResource(R.drawable.rain);
+                break;
+            }
+
+            case "11d": {
+                weatherCondition.setImageResource(R.drawable.thunderstorm);
+                break;
+            }
+            case "11n": {
+                weatherCondition.setImageResource(R.drawable.thunderstorm);
+                break;
+            }
+
+            case "13d": {
+                weatherCondition.setImageResource(R.drawable.snow);
+                break;
+            }
+            case "13n": {
+                weatherCondition.setImageResource(R.drawable.snow);
+                break;
+            }
+
+            case "50d": {
+                weatherCondition.setImageResource(R.drawable.mist);
+                break;
+            }
+            case "50n": {
+                weatherCondition.setImageResource(R.drawable.mist);
+                break;
+            }
+        }
     }
 
     @Override
